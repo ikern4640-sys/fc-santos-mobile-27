@@ -43,7 +43,6 @@
     color: inherit;
   }
 
-  /* ==================== PANTALLA DE BIENVENIDA ==================== */
   #splash-screen {
     position: fixed;
     inset: 0;
@@ -224,7 +223,6 @@
     filter: brightness(.95);
   }
 
-  /* ==================== CONTENEDOR PRINCIPAL ==================== */
   #app {
     max-width: 780px;
     margin: 0 auto;
@@ -378,7 +376,6 @@
     flex-shrink: 0;
   }
 
-  /* ==================== VISTAS ==================== */
   .view {
     display: none;
     flex-direction: column;
@@ -416,7 +413,6 @@
     color: var(--muted);
   }
 
-  /* ==================== INICIO (LAYOUT LATERAL DERECHO) ==================== */
   .home-grid {
     display: grid;
     grid-template-columns: 1.35fr .95fr;
@@ -535,7 +531,6 @@
     border-radius: 8px;
   }
 
-  /* ==================== CARTAS DE JUGADORES ==================== */
   .cards-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -634,7 +629,6 @@
     font-size: 11px;
   }
 
-  /* ==================== DRAFT ==================== */
   .draft-controls {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -722,7 +716,6 @@
     line-height: 1.5;
   }
 
-  /* ==================== CAJA MARADONA 125 ==================== */
   .caja-showcase {
     display: grid;
     grid-template-columns: 165px 1fr;
@@ -791,7 +784,6 @@
     color: var(--muted);
   }
 
-  /* ==================== INTERFAZ MESSI 125 ==================== */
   .messi-offer-card {
     display: grid;
     grid-template-columns: 170px 1fr;
@@ -826,7 +818,6 @@
     cursor: pointer;
   }
 
-  /* ==================== TIENDA / MISIONES / TIROS / FICHAS ==================== */
   .shop-list {
     display: flex;
     flex-direction: column;
@@ -917,4 +908,1337 @@
   }
 
   .goal-zone {
-    border: 1px dashed
+    border: 1px dashed rgba(255,255,255,.25);
+    display: grid;
+    place-items: center;
+    font-size: 10px;
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  .keeper-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f43f5e;
+    border: 2px solid #fff;
+    display: grid;
+    place-items: center;
+    font-size: 11px;
+    font-weight: 950;
+    margin: 0 auto;
+    transition: transform .22s ease;
+  }
+
+  .bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 400;
+    background: rgba(9, 15, 29, .95);
+    border-top: 1px solid var(--line);
+    backdrop-filter: blur(12px);
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+  }
+
+  .bottom-nav-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .nav-4-btn {
+    border: 1px solid transparent;
+    background: var(--card);
+    border-radius: 14px;
+    padding: 8px 6px;
+    font-size: 11px;
+    font-weight: 950;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .nav-4-btn.active {
+    background: rgba(0, 229, 168, .15);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 700;
+    background: rgba(3, 6, 14, .82);
+    backdrop-filter: blur(6px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .modal-backdrop.open {
+    display: flex;
+  }
+
+  .modal-card {
+    width: 100%;
+    max-width: 440px;
+    max-height: 85dvh;
+    overflow-y: auto;
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 22px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 24px 60px rgba(0,0,0,.7);
+  }
+
+  .reveal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin: 12px 0;
+  }
+
+  #lahm-walkout {
+    position: fixed;
+    inset: 0;
+    z-index: 850;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background: #040711;
+    overflow: hidden;
+  }
+
+  #lahm-walkout.active {
+    display: flex;
+  }
+
+  .walkout-top {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .scene-stage {
+    position: relative;
+    z-index: 2;
+    margin: auto 0;
+    min-height: 290px;
+    border-radius: 24px;
+    border: 1px solid rgba(251, 191, 36, .35);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .road-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #060b19 0%, #111b36 48%, #18181b 50%, #09090b 100%);
+  }
+
+  .road-lines {
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    width: 6px;
+    height: 160px;
+    background: repeating-linear-gradient(
+      to bottom,
+      #fbbf24 0px,
+      #fbbf24 22px,
+      transparent 22px,
+      transparent 44px
+    );
+    transform: translateX(-50%);
+    animation: roadScroll .55s linear infinite;
+  }
+
+  @keyframes roadScroll {
+    from { background-position-y: 0; }
+    to { background-position-y: 44px; }
+  }
+
+  .neon-sign {
+    position: relative;
+    z-index: 2;
+    padding: 10px 22px;
+    border-radius: 14px;
+    font-weight: 950;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    background: rgba(0,0,0,.65);
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    box-shadow: 0 0 24px rgba(251, 191, 36, .45);
+  }
+
+  .tv-frame {
+    width: 100%;
+    max-width: 340px;
+    border-radius: 18px;
+    border: 6px solid #334155;
+    background: linear-gradient(180deg, #14532d 0%, #064e3b 100%);
+    padding: 18px 14px;
+    box-shadow: 0 0 35px rgba(251, 191, 36, .35);
+  }
+
+  .toast {
+    position: fixed;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-80px);
+    z-index: 950;
+    background: #0f172a;
+    color: #fff;
+    border: 1px solid var(--accent);
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 900;
+    box-shadow: 0 12px 30px rgba(0,0,0,.6);
+    transition: transform .25s ease;
+    pointer-events: none;
+  }
+
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<div id="toast" class="toast"></div>
+
+<section id="splash-screen">
+  <div class="stadium-beams"></div>
+  <div class="splash-top">
+    <span class="splash-badge">TEMPORADA 27 · EDICIÓN SANTOS</span>
+    <button class="icon-btn" id="splash-audio-btn" onclick="toggleAudio()">🔊 MÚSICA</button>
+  </div>
+
+  <div class="splash-stars-bg">
+    <div class="star-poster messi">
+      <span class="poster-tag">125 · MCO</span>
+      <div id="splash-avatar-messi"></div>
+      <div class="poster-name">MESSI</div>
+      <div class="poster-role">ARGENTINA</div>
+    </div>
+    <div class="star-poster ronaldo">
+      <span class="poster-tag">123 · DC</span>
+      <div id="splash-avatar-ronaldo"></div>
+      <div class="poster-name">RONALDO</div>
+      <div class="poster-role">PORTUGAL</div>
+    </div>
+    <div class="star-poster mbappe">
+      <span class="poster-tag">124 · EI</span>
+      <div id="splash-avatar-mbappe"></div>
+      <div class="poster-name">MBAPPÉ</div>
+      <div class="poster-role">FRANCIA</div>
+    </div>
+  </div>
+
+  <div class="splash-bottom">
+    <h1 class="splash-title">BIENVENIDO A <span>FC SANTOS MOBILE 27</span></h1>
+    <p class="splash-sub">Arma tu plantilla, revienta el Draft, abre la Caja de Maradona 125 y caza el premio secreto Lahm 126.</p>
+    <button class="btn-start" onclick="enterGame()">INICIAR</button>
+  </div>
+</section>
+
+<div id="lahm-walkout">
+  <div class="walkout-top">
+    <span class="splash-badge" id="walkout-step-badge">ESCENA 1 / 4</span>
+    <button class="icon-btn" onclick="finishLahmWalkout()">SALTAR ⏭️</button>
+  </div>
+
+  <div class="scene-stage" id="walkout-stage"></div>
+
+  <div style="text-align:center; position:relative; z-index:3;">
+    <small style="color:var(--muted);">Cinemática Exclusiva · Lahm 126 LD</small>
+  </div>
+</div>
+
+<div id="app">
+  <header class="topbar">
+    <div class="club-box">
+      <div class="club-crest" id="crest-badge">FCS</div>
+      <div class="club-meta">
+        <div class="club-label" onclick="renameClub()">FC SANTOS 27 · EDITAR ✏️</div>
+        <div class="club-name" id="club-name-display">SANTOS FC 27</div>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <div class="grl-pill">
+        <span>GRL</span>
+        <strong id="topbar-grl">118</strong>
+      </div>
+      <button class="icon-btn" id="top-audio-btn" onclick="toggleAudio()">🔊</button>
+      <button class="icon-btn primary" onclick="switchView('home')">🏠 INICIO</button>
+    </div>
+  </header>
+
+  <section class="wallet-bar">
+    <div class="wallet-item">
+      <div>
+        <small>FICHAS</small>
+        <strong id="bal-fichas">0</strong>
+      </div>
+      <div class="wallet-dot" style="background:var(--gold); color:#181002;">F</div>
+    </div>
+    <div class="wallet-item">
+      <div>
+        <small>JOYAS</small>
+        <strong id="bal-joyas">0</strong>
+      </div>
+      <div class="wallet-dot" style="background:var(--accent-2); color:#04131d;">💎</div>
+    </div>
+    <div class="wallet-item">
+      <div>
+        <small>FC POINTS</small>
+        <strong id="bal-fcp">0</strong>
+      </div>
+      <div class="wallet-dot" style="background:var(--accent); color:#041510;">★</div>
+    </div>
+    <div class="wallet-item">
+      <div>
+        <small>CUPONES</small>
+        <strong id="bal-cupones">0</strong>
+      </div>
+      <div class="wallet-dot" style="background:var(--purple); color:#fff;">🎟️</div>
+    </div>
+  </section>
+
+  <main id="view-home" class="view active">
+    <div class="home-grid">
+      <div class="home-hero">
+        <span class="splash-badge">ESTADIO SANTOS</span>
+        <h2>Tu Club en Temporada 27</h2>
+        <p>Usa la barra inferior para entrar a Misiones, Fichas, Tienda o Tiros, o entra directo a los eventos especiales a la derecha.</p>
+        <div class="home-quick-row">
+          <button class="btn-buy" onclick="switchView('draft')">⚡ IR AL DRAFT</button>
+          <button class="btn-buy gold" onclick="switchView('squad')">👕 MI EQUIPO</button>
+        </div>
+      </div>
+
+      <div class="side-events">
+        <button class="event-side-btn caja" onclick="switchView('caja')">
+          <span class="event-chip">EVENTO ACTIVO</span>
+          <h3>CAJA 4 DÍAS</h3>
+          <small>Maradona 125 Firmado + Lahm 126 secreto</small>
+          <div class="countdown-tag" id="caja-countdown">⏳ 3d 23h 59m</div>
+        </button>
+
+        <button class="event-side-btn interfaz" onclick="switchView('interfaz')">
+          <span class="event-chip">ESPECIAL</span>
+          <h3>INTERFAZ</h3>
+          <small>Messi 125 a 10,000 FC Points y neón</small>
+        </button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3 class="panel-title">Mi Vestuario Reciente</h3>
+      <p class="panel-sub">Toca una carta para revisarla en tu plantilla.</p>
+      <div id="home-recent-cards" class="cards-3"></div>
+    </div>
+  </main>
+
+  <section id="view-draft" class="view">
+    <div class="panel">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+        <div>
+          <h3 class="panel-title">DRAFT DE ESTRELLAS 27</h3>
+          <p class="panel-sub" style="margin-bottom:0;">Normales 116–118 · Grupo B 119–121 · Grupo A 122–124 (pueden salir antes).</p>
+        </div>
+        <span class="splash-badge">🎟️ <span id="draft-coupons-txt">0</span></span>
+      </div>
+
+      <div id="draft-featured-grid" class="cards-3" style="margin-top:12px;"></div>
+
+      <div class="draft-controls">
+        <button class="btn-spin single" onclick="spinDraft(1)">
+          GIRAR (x1)
+          <small>1 Cupón o 250 Joyas</small>
+        </button>
+        <button class="btn-spin ten" onclick="spinDraft(10)">
+          GIRAR X10
+          <small>10 Cupones o 2,200 Joyas</small>
+        </button>
+      </div>
+
+      <div class="pity-box">
+        <div class="pity-head">
+          <span>Grupo B Garantizado (119–121)</span>
+          <span id="draft-pity-b">0 / 10 giros</span>
+        </div>
+        <div class="pity-track">
+          <div id="draft-bar-b" class="pity-fill b"></div>
+        </div>
+      </div>
+
+      <div class="pity-box">
+        <div class="pity-head">
+          <span>Grupo A Garantizado (122–124)</span>
+          <span id="draft-pity-a">0 / 70 giros</span>
+        </div>
+        <div class="pity-track">
+          <div id="draft-bar-a" class="pity-fill a"></div>
+        </div>
+      </div>
+
+      <div id="draft-pool-preview" class="pool-box"></div>
+    </div>
+  </section>
+
+  <section id="view-caja" class="view">
+    <div class="panel">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div>
+          <h3 class="panel-title">CAJA MARADONA 125 FIRMADO</h3>
+          <p class="panel-sub" style="margin-bottom:0;">12 casillas de recompensas · Tope normal GRL 125 · Restantes: <strong id="caja-rem-count">12/12</strong></p>
+        </div>
+        <span class="countdown-tag" id="caja-countdown-inner">⏳ 3d 23h 59m</span>
+      </div>
+
+      <div class="caja-showcase" style="margin-top:12px;">
+        <div id="caja-maradona-card"></div>
+        <div>
+          <div class="secret-badge">🔥 PREMIO SECRETO ULTRA DIFÍCIL · LAHM 126 LD (0.2%)</div>
+          <p class="panel-sub">Incluye a Maradona 125 Firmado, Fichas, Joyas, Cupones, FC Points y la probabilidad oculta de romper el límite con Lahm 126.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <button class="btn-buy gold" id="caja-spin-btn" onclick="openCajaMaradona()">★ ABRIR CAJA (600 FC POINTS)</button>
+            <button class="icon-btn" onclick="startLahmWalkout(() => showModal('Vista Previa', 'Cinemática de Lahm 126 LD completada.'))">🎬 VER WALKOUT LAHM</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="caja-grid-12" class="caja-grid-12"></div>
+    </div>
+  </section>
+
+  <section id="view-interfaz" class="view">
+    <div class="panel">
+      <h3 class="panel-title">INTERFAZ DEL CLUB</h3>
+      <p class="panel-sub">Canjea a Messi 125 y personaliza el brillo de tu interfaz.</p>
+
+      <div class="messi-offer-card">
+        <div id="interfaz-messi-card"></div>
+        <div>
+          <span class="shop-tag">OFERTA DE INTERFAZ</span>
+          <h4 style="margin:4px 0 6px; font-size:16px;">Lionel Messi 125 · MCO</h4>
+          <p class="panel-sub">Carta especial de interfaz para reforzar tu mediapunta.</p>
+          <button class="btn-buy gold" id="btn-buy-messi-125" onclick="buyMessi125()">COMPRAR · 10,000 FC POINTS</button>
+
+          <div style="margin-top:14px;">
+            <small style="font-size:11px; font-weight:800; color:var(--muted);">COLOR DE NEÓN</small>
+            <div class="neon-swatches">
+              <button class="swatch" style="background:#00e5a8;" onclick="setNeon('#00e5a8')"></button>
+              <button class="swatch" style="background:#fbbf24;" onclick="setNeon('#fbbf24')"></button>
+              <button class="swatch" style="background:#38bdf8;" onclick="setNeon('#38bdf8')"></button>
+              <button class="swatch" style="background:#f43f5e;" onclick="setNeon('#f43f5e')"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-misiones" class="view">
+    <div class="panel">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+        <div>
+          <h3 class="panel-title">MISIONES DIARIAS</h3>
+          <p class="panel-sub" style="margin-bottom:0;">Se actualizan automáticamente cada día.</p>
+        </div>
+        <span class="splash-badge" id="missions-date-badge">HOY</span>
+      </div>
+      <div id="missions-list" class="shop-list" style="margin-top:12px;"></div>
+    </div>
+  </section>
+
+  <section id="view-fichas" class="view">
+    <div class="panel">
+      <h3 class="panel-title">CENTRO DE FICHAS</h3>
+      <p class="panel-sub">Canjea Fichas por Cupones o Joyas, o vende jugadores de tu club por Fichas.</p>
+      <div class="shop-list" style="margin-bottom:14px;">
+        <div class="shop-row">
+          <div>
+            <span class="shop-tag">CANJE</span>
+            <h4>3 Cupones de Draft</h4>
+            <p>Costo: 6,000 Fichas</p>
+          </div>
+          <button class="btn-buy" onclick="exchangeFichasForCoupons()">CANJEAR</button>
+        </div>
+        <div class="shop-row">
+          <div>
+            <span class="shop-tag">CANJE</span>
+            <h4>1,200 Joyas</h4>
+            <p>Costo: 8,000 Fichas</p>
+          </div>
+          <button class="btn-buy gold" onclick="exchangeFichasForGems()">CANJEAR</button>
+        </div>
+      </div>
+
+      <h4 style="margin:0 0 8px; font-size:14px;">Vender Jugadores por Fichas</h4>
+      <div id="sell-players-list" class="shop-list"></div>
+    </div>
+  </section>
+
+  <section id="view-tienda" class="view">
+    <div class="panel">
+      <h3 class="panel-title">TIENDA SANTOS</h3>
+      <p class="panel-sub">Bono diario cada 24h, recursos y ofertas especiales.</p>
+
+      <div id="tienda-list" class="shop-list"></div>
+    </div>
+  </section>
+
+  <section id="view-tiros" class="view">
+    <div class="panel">
+      <h3 class="panel-title">TIROS / PENALES</h3>
+      <p class="panel-sub">Elige un lado del arco para patear y ganar Fichas, Joyas y FC Points.</p>
+
+      <div class="penalty-field">
+        <div class="goal-frame">
+          <div class="goal-zone" onclick="shootPenalty('izq')">IZQ</div>
+          <div class="goal-zone" onclick="shootPenalty('centro')">CENTRO</div>
+          <div class="goal-zone" onclick="shootPenalty('der')">DER</div>
+        </div>
+        <div class="keeper-dot" id="keeper-dot">🧤</div>
+      </div>
+
+      <p id="penalty-result" style="margin:10px 0 0; font-size:12px; font-weight:800; text-align:center; color:var(--accent);">¡Toca IZQ, CENTRO o DER para tirar!</p>
+    </div>
+  </section>
+
+  <section id="view-squad" class="view">
+    <div class="panel">
+      <h3 class="panel-title">MI PLANTILLA (4-3-3 MCO)</h3>
+      <p class="panel-sub">Tus mejores jugadores ordenados por GRL.</p>
+      <div id="squad-list" class="cards-3"></div>
+    </div>
+  </section>
+</div>
+
+<nav class="bottom-nav">
+  <div class="bottom-nav-inner">
+    <button class="nav-4-btn" id="nav-misiones" onclick="switchView('misiones')">📋<span>MISIONES</span></button>
+    <button class="nav-4-btn" id="nav-fichas" onclick="switchView('fichas')">🪙<span>FICHAS</span></button>
+    <button class="nav-4-btn" id="nav-tienda" onclick="switchView('tienda')">🛒<span>TIENDA</span></button>
+    <button class="nav-4-btn" id="nav-tiros" onclick="switchView('tiros')">⚽<span>TIROS</span></button>
+  </div>
+</nav>
+
+<div id="modal" class="modal-backdrop" onclick="if(event.target===this) closeModal()">
+  <div class="modal-card">
+    <h3 id="modal-title" style="margin:0 0 6px; font-size:18px; font-weight:950;"></h3>
+    <p id="modal-sub" style="margin:0 0 12px; font-size:12px; color:var(--muted);"></p>
+    <div id="modal-body"></div>
+    <button class="btn-start" style="margin-top:12px; padding:12px; font-size:13px;" onclick="closeModal()">¡CONTINUAR!</button>
+  </div>
+</div>
+
+<script>
+const STORAGE_KEY = 'fc_santos_mobile_27_v2';
+
+const DRAFT_TIERS = {
+  normal: [
+    { id: 'n1', name: 'Pedri', pos: 'MC', ovr: 118, country: 'ESP', pac: 112, sho: 110, dri: 120, tier: 'normal' },
+    { id: 'n2', name: 'Saliba', pos: 'DFC', ovr: 117, country: 'FRA', pac: 115, sho: 88, dri: 105, tier: 'normal' },
+    { id: 'n3', name: 'Saka', pos: 'ED', ovr: 118, country: 'ING', pac: 119, sho: 115, dri: 118, tier: 'normal' },
+    { id: 'n4', name: 'Gvardiol', pos: 'LI', ovr: 116, country: 'CRO', pac: 114, sho: 96, dri: 111, tier: 'normal' }
+  ],
+  groupB: [
+    { id: 'b1', name: 'Neymar Jr', pos: 'EI', ovr: 122, country: 'BRA', pac: 122, sho: 118, dri: 125, tier: 'b' },
+    { id: 'b2', name: 'Bellingham', pos: 'MCO', ovr: 121, country: 'ING', pac: 118, sho: 120, dri: 122, tier: 'b' },
+    { id: 'b3', name: 'Rodri', pos: 'MCD', ovr: 120, country: 'ESP', pac: 111, sho: 114, dri: 118, tier: 'b' },
+    { id: 'b4', name: 'Vinícius Jr', pos: 'EI', ovr: 121, country: 'BRA', pac: 125, sho: 117, dri: 123, tier: 'b' }
+  ],
+  groupA: [
+    { id: 'a1', name: 'Mbappé', pos: 'DC', ovr: 124, country: 'FRA', pac: 126, sho: 123, dri: 124, tier: 'a' },
+    { id: 'a2', name: 'Ronaldo', pos: 'DC', ovr: 123, country: 'POR', pac: 121, sho: 125, dri: 121, tier: 'a' },
+    { id: 'a3', name: 'Neymar Jr', pos: 'MCO', ovr: 122, country: 'BRA', pac: 122, sho: 119, dri: 125, tier: 'a' }
+  ]
+};
+
+const CAJA_REWARDS = [
+  { id: 'c1', label: 'Maradona 125 Firmado', type: 'player', player: { id: 'maradona_125', name: 'Maradona Firmado', pos: 'MCO', ovr: 125, country: 'ARG', pac: 124, sho: 125, dri: 126, tier: 'legend' } },
+  { id: 'c2', label: '+15,000 Fichas', type: 'fichas', amount: 15000 },
+  { id: 'c3', label: '+2,500 Joyas', type: 'joyas', amount: 2500 },
+  { id: 'c4', label: '+4 Cupones Draft', type: 'cupones', amount: 4 },
+  { id: 'c5', label: '+3,000 FC Points', type: 'fcp', amount: 3000 },
+  { id: 'c6', label: '+12,000 Fichas', type: 'fichas', amount: 12000 },
+  { id: 'c7', label: '+1,800 Joyas', type: 'joyas', amount: 1800 },
+  { id: 'c8', label: '+3 Cupones Draft', type: 'cupones', amount: 3 },
+  { id: 'c9', label: '+2,000 FC Points', type: 'fcp', amount: 2000 },
+  { id: 'c10', label: '+10,000 Fichas', type: 'fichas', amount: 10000 },
+  { id: 'c11', label: '+1,500 Joyas', type: 'joyas', amount: 1500 },
+  { id: 'c12', label: '+2 Cupones Draft', type: 'cupones', amount: 2 }
+];
+
+const LAHM_126 = {
+  id: 'lahm_126',
+  name: 'Lahm',
+  pos: 'LD',
+  ovr: 126,
+  country: 'ALE',
+  pac: 125,
+  sho: 112,
+  dri: 124,
+  tier: 'secret'
+};
+
+const MESSI_125 = {
+  id: 'messi_125',
+  name: 'Messi',
+  pos: 'MCO',
+  ovr: 125,
+  country: 'ARG',
+  pac: 123,
+  sho: 125,
+  dri: 126,
+  tier: 'legend'
+};
+
+function todayKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function defaultState() {
+  return {
+    clubName: 'SANTOS FC 27',
+    neon: '#00e5a8',
+    fichas: 25000,
+    joyas: 5000,
+    fcp: 15000,
+    cupones: 5,
+    pityB: 0,
+    pityA: 0,
+    cajaClaimed: [],
+    cajaEndsAt: Date.now() + 4 * 24 * 60 * 60 * 1000,
+    lastDailyBonusDate: '',
+    lastFlashOfferDate: '',
+    missionDay: todayKey(),
+    missions: [
+      { id: 'm1', title: 'Realiza 3 tiros en Penales', goal: 3, progress: 0, rewardText: '+4,000 Fichas', reward: { fichas: 4000 }, claimed: false },
+      { id: 'm2', title: 'Abre 2 giros en el Draft', goal: 2, progress: 0, rewardText: '+2 Cupones', reward: { cupones: 2 }, claimed: false },
+      { id: 'm3', title: 'Abre 1 Caja de Maradona', goal: 1, progress: 0, rewardText: '+1,500 FC Points', reward: { fcp: 1500 }, claimed: false }
+    ],
+    players: [
+      { uid: 'init_1', name: 'Messi', pos: 'MCO', ovr: 122, country: 'ARG', pac: 120, sho: 123, dri: 125, tier: 'a' },
+      { uid: 'init_2', name: 'Pedri', pos: 'MC', ovr: 118, country: 'ESP', pac: 112, sho: 110, dri: 120, tier: 'normal' },
+      { uid: 'init_3', name: 'Saliba', pos: 'DFC', ovr: 117, country: 'FRA', pac: 115, sho: 88, dri: 105, tier: 'normal' }
+    ]
+  };
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return defaultState();
+    const parsed = JSON.parse(raw);
+    return { ...defaultState(), ...parsed };
+  } catch {
+    return defaultState();
+  }
+}
+
+let state = loadState();
+
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch {}
+}
+
+function ensureDailyMissions() {
+  const key = todayKey();
+  if (state.missionDay !== key) {
+    state.missionDay = key;
+    state.missions = [
+      { id: 'm1', title: 'Realiza 3 tiros en Penales', goal: 3, progress: 0, rewardText: '+4,000 Fichas', reward: { fichas: 4000 }, claimed: false },
+      { id: 'm2', title: 'Abre 2 giros en el Draft', goal: 2, progress: 0, rewardText: '+2 Cupones', reward: { cupones: 2 }, claimed: false },
+      { id: 'm3', title: 'Abre 1 Caja de Maradona', goal: 1, progress: 0, rewardText: '+1,500 FC Points', reward: { fcp: 1500 }, claimed: false }
+    ];
+    saveState();
+  }
+}
+
+function bumpMission(id, amount = 1) {
+  ensureDailyMissions();
+  const m = state.missions.find(x => x.id === id);
+  if (m && !m.claimed) {
+    m.progress = Math.min(m.goal, m.progress + amount);
+    saveState();
+  }
+}
+
+let audioCtx = null;
+let bgMusicTimer = null;
+let musicEnabled = true;
+
+function ensureAudio() {
+  if (!audioCtx) {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (Ctx) audioCtx = new Ctx();
+  }
+  if (audioCtx && audioCtx.state === 'suspended') {
+    audioCtx.resume().catch(() => {});
+  }
+}
+
+function playTone(freq, duration = 0.14, type = 'triangle', gainVal = 0.06) {
+  if (!musicEnabled) return;
+  ensureAudio();
+  if (!audioCtx) return;
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.type = type;
+  osc.frequency.value = freq;
+  gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.0008, audioCtx.currentTime + duration);
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  osc.start();
+  osc.stop(audioCtx.currentTime + duration);
+}
+
+function startAmbientMusic() {
+  if (bgMusicTimer) return;
+  const notes = [261.63, 329.63, 392.00, 523.25, 392.00, 349.23, 440.00, 392.00];
+  let idx = 0;
+  bgMusicTimer = setInterval(() => {
+    if (musicEnabled) {
+      playTone(notes[idx % notes.length], 0.22, 'sine', 0.03);
+      idx++;
+    }
+  }, 460);
+}
+
+function toggleAudio() {
+  musicEnabled = !musicEnabled;
+  if (musicEnabled) {
+    ensureAudio();
+    startAmbientMusic();
+    playTone(587.33, 0.12, 'triangle', 0.07);
+  }
+  const label = musicEnabled ? '🔊 MÚSICA' : '🔇 SILENCIO';
+  document.getElementById('splash-audio-btn').textContent = label;
+  document.getElementById('top-audio-btn').textContent = musicEnabled ? '🔊' : '🔇';
+  showToast(musicEnabled ? 'Música activada' : 'Música silenciada');
+}
+
+function enterGame() {
+  ensureAudio();
+  startAmbientMusic();
+  playTone(659.25, 0.18, 'triangle', 0.08);
+  document.getElementById('splash-screen').classList.add('hidden');
+}
+
+function avatarHTML(name, size = 46) {
+  const initials = (name || 'FC').slice(0, 2).toUpperCase();
+  return `<div style="width:${size}px;height:${size}px;border-radius:50%;background:linear-gradient(135deg,#38bdf8,#fbbf24);color:#06101e;display:grid;place-items:center;font-weight:950;font-size:${Math.round(size * 0.36)}px;margin:4px auto;box-shadow:0 6px 14px rgba(0,0,0,.35);">${initials}</div>`;
+}
+
+function playerCardHTML(p, extraBadge = '') {
+  return `
+    <div class="player-card tier-${p.tier || 'normal'}">
+      <div class="card-top">
+        <span class="card-ovr">${p.ovr}</span>
+        <span class="card-pos">${p.pos}</span>
+      </div>
+      ${avatarHTML(p.name, 46)}
+      <div class="card-name">${p.name}</div>
+      <div class="card-sub">${p.country || 'INT'} ${extraBadge ? '· ' + extraBadge : ''}</div>
+      <div class="card-stats">
+        <div><span>RIT</span><strong>${p.pac}</strong></div>
+        <div><span>TIR</span><strong>${p.sho}</strong></div>
+        <div><span>REG</span><strong>${p.dri}</strong></div>
+      </div>
+    </div>
+  `;
+}
+
+function addPlayerToClub(player) {
+  state.players.unshift({
+    ...player,
+    uid: 'p_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7)
+  });
+  saveState();
+}
+
+function switchView(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  const target = document.getElementById('view-' + name);
+  if (target) target.classList.add('active');
+
+  document.querySelectorAll('.nav-4-btn').forEach(b => b.classList.remove('active'));
+  const navBtn = document.getElementById('nav-' + name);
+  if (navBtn) navBtn.classList.add('active');
+
+  renderAll();
+}
+
+function showModal(title, sub, bodyHTML = '') {
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-sub').textContent = sub;
+  document.getElementById('modal-body').innerHTML = bodyHTML;
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  renderAll();
+}
+
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(() => el.classList.remove('show'), 2100);
+}
+
+function renameClub() {
+  const next = prompt('Nuevo nombre de tu club:', state.clubName);
+  if (next && next.trim()) {
+    state.clubName = next.trim().slice(0, 22).toUpperCase();
+    saveState();
+    renderAll();
+    showToast('Nombre actualizado');
+  }
+}
+
+function setNeon(color) {
+  state.neon = color;
+  document.documentElement.style.setProperty('--neon', color);
+  saveState();
+  showToast('Color de interfaz actualizado');
+}
+
+function buyMessi125() {
+  if (state.fcp < 10000) {
+    showToast('Te faltan FC Points (necesitas 10,000)');
+    return;
+  }
+  state.fcp -= 10000;
+  addPlayerToClub(MESSI_125);
+  playTone(783.99, 0.25, 'triangle', 0.08);
+  showModal('¡MESSI 125 FICHADO!', 'Agregado a tu vestuario desde Interfaz.', playerCardHTML(MESSI_125, 'INTERFAZ'));
+}
+
+function spinDraft(count) {
+  const costCoupons = count;
+  const costGems = count === 1 ? 250 : 2200;
+
+  if (state.cupones >= costCoupons) {
+    state.cupones -= costCoupons;
+  } else if (state.joyas >= costGems) {
+    state.joyas -= costGems;
+  } else {
+    showToast('No tienes suficientes Cupones ni Joyas');
+    return;
+  }
+
+  const pulled = [];
+  for (let i = 0; i < count; i++) {
+    state.pityB += 1;
+    state.pityA += 1;
+
+    let chosen;
+    if (state.pityA >= 70) {
+      const pool = DRAFT_TIERS.groupA;
+      chosen = pool[Math.floor(Math.random() * pool.length)];
+      state.pityA = 0;
+      state.pityB = 0;
+    } else if (state.pityB >= 10) {
+      const pool = DRAFT_TIERS.groupB;
+      chosen = pool[Math.floor(Math.random() * pool.length)];
+      state.pityB = 0;
+    } else {
+      const roll = Math.random();
+      if (roll < 0.08) {
+        const pool = DRAFT_TIERS.groupA;
+        chosen = pool[Math.floor(Math.random() * pool.length)];
+        state.pityA = 0;
+        state.pityB = 0;
+      } else if (roll < 0.26) {
+        const pool = DRAFT_TIERS.groupB;
+        chosen = pool[Math.floor(Math.random() * pool.length)];
+        state.pityB = 0;
+      } else {
+        const pool = DRAFT_TIERS.normal;
+        chosen = pool[Math.floor(Math.random() * pool.length)];
+      }
+    }
+
+    addPlayerToClub(chosen);
+    pulled.push(chosen);
+    bumpMission('m2', 1);
+  }
+
+  saveState();
+  playTone(523.25, 0.2, 'triangle', 0.08);
+
+  if (pulled.length === 1) {
+    showModal('¡FICHAJE DEL DRAFT!', `${pulled[0].name} (${pulled[0].ovr} ${pulled[0].pos})`, playerCardHTML(pulled[0]));
+  } else {
+    showModal(
+      `RESULTADO DRAFT X${pulled.length}`,
+      'Nuevos jugadores añadidos a tu club',
+      `<div class="reveal-grid">${pulled.map(p => playerCardHTML(p)).join('')}</div>`
+    );
+  }
+}
+
+function getCajaCost() {
+  return 600 + state.cajaClaimed.length * 150;
+}
+
+function openCajaMaradona() {
+  const remainingIndices = CAJA_REWARDS
+    .map((r, idx) => ({ r, idx }))
+    .filter(item => !state.cajaClaimed.includes(item.idx));
+
+  if (remainingIndices.length === 0) {
+    state.cajaClaimed = [];
+    saveState();
+    renderAll();
+    showToast('Caja Maradona 125 reiniciada');
+    return;
+  }
+
+  const cost = getCajaCost();
+  if (state.fcp < cost) {
+    showToast(`Necesitas ${cost.toLocaleString()} FC Points`);
+    return;
+  }
+
+  state.fcp -= cost;
+  bumpMission('m3', 1);
+
+  if (Math.random() < 0.002) {
+    addPlayerToClub(LAHM_126);
+    saveState();
+    startLahmWalkout(() => {
+      showModal(
+        '🔥 ¡PREMIO ULTRA DIFÍCIL 0.2%!',
+        'Rompiste el límite de 125 con LAHM 126 LD',
+        playerCardHTML(LAHM_126, 'SECRETO 0.2%')
+      );
+    });
+    return;
+  }
+
+  const pick = remainingIndices[Math.floor(Math.random() * remainingIndices.length)];
+  state.cajaClaimed.push(pick.idx);
+
+  let extraCardHTML = '';
+  if (pick.r.type === 'player') {
+    addPlayerToClub(pick.r.player);
+    extraCardHTML = playerCardHTML(pick.r.player, 'FIRMADO');
+  } else if (pick.r.type === 'fichas') {
+    state.fichas += pick.r.amount;
+  } else if (pick.r.type === 'joyas') {
+    state.joyas += pick.r.amount;
+  } else if (pick.r.type === 'cupones') {
+    state.cupones += pick.r.amount;
+  } else if (pick.r.type === 'fcp') {
+    state.fcp += pick.r.amount;
+  }
+
+  saveState();
+  playTone(698.46, 0.2, 'triangle', 0.08);
+  showModal('RECOMPENSA DE CAJA', pick.r.label, extraCardHTML || `<p style="font-size:20px;font-weight:950;color:var(--gold);">${pick.r.label}</p>`);
+}
+
+let walkoutTimers = [];
+let onWalkoutDone = null;
+
+function clearWalkoutTimers() {
+  walkoutTimers.forEach(t => clearTimeout(t));
+  walkoutTimers = [];
+}
+
+function startLahmWalkout(callback) {
+  clearWalkoutTimers();
+  onWalkoutDone = callback || null;
+  const overlay = document.getElementById('lahm-walkout');
+  overlay.classList.add('active');
+
+  const renderScene = (step, badge, html, toneFreq) => {
+    document.getElementById('walkout-step-badge').textContent = `ESCENA ${step} / 4 · ${badge}`;
+    document.getElementById('walkout-stage').innerHTML = html;
+    playTone(toneFreq, 0.22, 'sawtooth', 0.05);
+  };
+
+  renderScene(1, 'CARRETERA NOCTURNA', `
+    <div class="road-bg"></div>
+    <div class="road-lines"></div>
+    <div class="neon-sign">🇩🇪 ALEMÁN</div>
+    <p style="position:relative;z-index:2;margin-top:12px;font-weight:800;">Acelerando por la autopista de estrellas...</p>
+  `, 330);
+
+  walkoutTimers.push(setTimeout(() => {
+    renderScene(2, 'RESIDENCIA DORADA', `
+      <div style="position:relative;z-index:2;">
+        <div style="font-size:48px;">🏡✨</div>
+        <div class="neon-sign" style="margin-top:10px;">POSICIÓN · LD</div>
+        <p style="margin-top:10px;font-size:12px;color:var(--muted);">Luz encendida en la fachada...</p>
+      </div>
+    `, 440);
+  }, 1500));
+
+  walkoutTimers.push(setTimeout(() => {
+    renderScene(3, 'TRANSMISIÓN EN VIVO', `
+      <div class="tv-frame" style="position:relative;z-index:2;">
+        <div style="font-size:10px;font-weight:900;color:#fde68a;letter-spacing:.1em;">● EN DIRECTO · ESTADIO</div>
+        <div class="neon-sign" style="margin:12px auto;display:inline-block;">★ ÍCONO</div>
+        <div style="font-size:12px;font-weight:800;">Entrando al terreno de juego...</div>
+      </div>
+    `, 587.33);
+  }, 3000));
+
+  walkoutTimers.push(setTimeout(() => {
+    renderScene(4, 'DENTRO DEL PARTIDO', `
+      <div style="position:relative;z-index:2;">
+        <div class="secret-badge">🔥 ¡PREMIO ULTRA DIFÍCIL 0.2%!</div>
+        <div style="font-size:46px;">🏟️⚽</div>
+        <h3 style="margin:8px 0 4px;font-size:22px;font-weight:950;color:var(--gold);">LAHM · 126 LD</h3>
+        <p style="margin:0;font-size:12px;">Celebrando en el césped con el dorsal legendario.</p>
+      </div>
+    `, 783.99);
+  }, 4500));
+
+  walkoutTimers.push(setTimeout(() => {
+    finishLahmWalkout();
+  }, 6300));
+}
+
+function finishLahmWalkout() {
+  clearWalkoutTimers();
+  document.getElementById('lahm-walkout').classList.remove('active');
+  if (typeof onWalkoutDone === 'function') {
+    const fn = onWalkoutDone;
+    onWalkoutDone = null;
+    fn();
+  }
+}
+
+function claimDailyBonus() {
+  const today = todayKey();
+  if (state.lastDailyBonusDate === today) {
+    showToast('Ya reclamaste el bono de hoy');
+    return;
+  }
+  state.lastDailyBonusDate = today;
+  state.fcp += 2500;
+  saveState();
+  playTone(659.25, 0.2, 'triangle', 0.08);
+  showToast('+2,500 FC Points reclamados');
+  renderAll();
+}
+
+function buyFlashOffer() {
+  const today = todayKey();
+  if (state.lastFlashOfferDate === today) {
+    showToast('Oferta relámpago ya usada hoy');
+    return;
+  }
+  state.lastFlashOfferDate = today;
+  state.fcp += 1500;
+  state.cupones += 2;
+  saveState();
+  showToast('¡Oferta Relámpago canjeada! +1,500 FCP y +2 Cupones');
+  renderAll();
+}
+
+function buyPack(kind) {
+  if (kind === 'star') {
+    state.fcp += 5000;
+    state.fichas += 15000;
+    state.cupones += 5;
+    showToast('Pase Estrella Santos canjeado');
+  } else if (kind === 'mega') {
+    state.fcp += 12000;
+    state.joyas += 3000;
+    showToast('Lote Mega FC Points canjeado');
+  } else if (kind === 'legend') {
+    state.fcp += 25000;
+    state.cupones += 10;
+    addPlayerToClub(DRAFT_TIERS.groupA[0]);
+    showToast('Cofre Leyenda canjeado + Mbappé 124');
+  }
+  saveState();
+  renderAll();
+}
+
+function exchangeFichasForCoupons() {
+  if (state.fichas < 6000) {
+    showToast('Necesitas 6,000 Fichas');
+    return;
+  }
+  state.fichas -= 6000;
+  state.cupones += 3;
+  saveState();
+  showToast('+3 Cupones de Draft');
+  renderAll();
+}
+
+function exchangeFichasForGems() {
+  if (state.fichas < 8000) {
+    showToast('Necesitas 8,000 Fichas');
+    return;
+  }
+  state.fichas -= 8000;
+  state.joyas += 1200;
+  saveState();
+  showToast('+1,200 Joyas');
+  renderAll();
+}
+
+function sellPlayer(uid) {
+  if (state.players.length <= 1) {
+    showToast('Debes conservar al menos 1 jugador');
+    return;
+  }
+  const idx = state.players.findIndex(p => p.uid === uid);
+  if (idx === -1) return;
+  const p = state.players[idx];
+  const payout = Math.max(1500, (p.ovr - 110) * 650);
+  state.players.splice(idx, 1);
+  state.fichas += payout;
+  saveState();
+  showToast(`Vendiste a ${p.name} por +${payout.toLocaleString()} Fichas`);
+  renderAll();
+}
+
+function claimMission(id) {
+  ensureDailyMissions();
+  const m = state.missions.find(x => x.id === id);
+  if (!m || m.claimed || m.progress < m.goal) return;
+  m.claimed = true;
+  if (m.reward.fichas) state.fichas += m.reward.fichas;
+  if (m.reward.cupones) state.cupones += m.reward.cupones;
+  if (m.reward.fcp) state.fcp += m.reward.fcp;
+  saveState();
+  playTone(783.99, 0.2, 'triangle', 0.08);
+  showToast(`Misión reclamada: ${m.rewardText}`);
+  renderAll();
+}
+
+function shootPenalty(choice) {
+  const zones = ['izq', 'centro', 'der'];
+  const keeperChoice = zones[Math.floor(Math.random() * zones.length)];
+  const dot = document.getElementById('keeper-dot');
+  const shift = keeperChoice === 'izq' ? -65 : keeperChoice === 'der' ? 65 : 0;
+  dot.style.transform = `translateX(${shift}px)`;
+
+  bumpMission('m1', 1);
+
+  if (choice !== keeperChoice) {
+    const prizeFichas = 1800;
+    const prizeJoyas = 150;
+    state.fichas += prizeFichas;
+    state.joyas += prizeJoyas;
+    document.getElementById('penalty-result').textContent = `¡GOLAZO! +${prizeFichas.toLocaleString()} Fichas y +${prizeJoyas} Joyas`;
+    playTone(659.25, 0.16, 'triangle', 0.08);
+  } else {
+    state.fichas += 500;
+    document.getElementById('penalty-result').textContent = `¡Atajó el portero! Recibes +500 Fichas de consolación`;
+    playTone(220, 0.16, 'sawtooth', 0.06);
+  }
+  saveState();
+  renderAll();
+}
+
+function computeClubGRL() {
+  if (!state.players.length) return 100;
+  const sorted = [...state.players].sort((a, b) => b.ovr - a.ovr).slice(0, 11);
+  const sum = sorted.reduce((acc, p) => acc + p.ovr, 0);
+  return Math.round(sum / sorted.length);
+}
+
+function formatCountdown(msLeft) {
+  if (msLeft <= 0) return '00h 00m';
+  const totalSec = Math.floor(msLeft / 1000);
+  const d = Math.floor(totalSec / 86400);
+  const h = Math.floor((totalSec % 86400) / 3600);
+  const m = Math.floor((totalSec % 3600) / 60);
+  return d > 0 ? `${d}d ${h}h ${m}m` : `${h}h ${m}m`;
+}
+
+function renderAll() {
+  ensureDailyMissions();
+  document.documentElement.style.setProperty('--neon', state.neon || '#00e5a8');
+  document.getElementById('club-name-display').textContent = state.clubName;
+  document.getElementById('crest-badge').textContent = state.clubName.slice(0, 3) || 'FCS';
+  document.getElementById('topbar-grl').textContent = computeClubGRL();
+
+  document.getElementById('bal-fichas').textContent = state.fichas.toLocaleString();
+  document.getElementById('bal-joyas').textContent = state.joyas.toLocaleString();
+  document.getElementById('bal-fcp').textContent = state.fcp.toLocaleString();
+  document.getElementById('bal-cupones').textContent = state.cupones.toLocaleString();
+
+  const cdText = `⏳ ${formatCountdown(state.cajaEndsAt - Date.now())}`;
+  document.getElementById('caja-countdown').textContent = cdText;
+  document.getElementById('caja-countdown-inner').textContent = cdText;
+
+  const recentEl = document.getElementById('home-recent-cards');
+  recentEl.innerHTML = state.players.slice(0, 3).map(p => playerCardHTML(p)).join('');
+
+  document.getElementById('draft-coupons-txt').textContent = state.cupones;
+  document.getElementById('draft-pity-b').textContent = `${state.pityB} / 10 giros`;
+  document.getElementById('draft-pity-a').textContent = `${state.pityA} / 70 giros`;
+  document.getElementById('draft-bar-b').style.width = `${Math.min(100, (state.pityB / 10) * 100)}%`;
+  document.getElementById('draft-bar-a').style.width = `${Math.min(100, (state.pityA / 70) * 100)}%`;
+
+  document.getElementById('draft-featured-grid').innerHTML =
+    DRAFT_TIERS.groupA.map(p => playerCardHTML(p)).join('');
+
+  document.getElementById('draft-pool-preview').innerHTML = `
+    <div><strong style="color:var(--gold);">Grupo A (122–124):</strong> ${DRAFT_TIERS.groupA.map(p => `${p.name} ${p.ovr} (${p.pos})`).join(' · ')}</div>
+    <div><strong style="color:var(--accent-2);">Grupo B (119–121):</strong> ${DRAFT_TIERS.groupB.map(p => `${p.name} ${p.ovr} (${p.pos})`).join(' · ')}</div>
+    <div><strong>Normales (116–118):</strong> ${DRAFT_TIERS.normal.map(p => `${p.name} ${p.ovr} (${p.pos})`).join(' · ')}</div>
+  `;
+
+  const rem = CAJA_REWARDS.length - state.cajaClaimed.length;
+  document.getElementById('caja-rem-count').textContent = `${rem}/${CAJA_REWARDS.length}`;
+  document.getElementById('caja-maradona-card').innerHTML = playerCardHTML(CAJA_REWARDS[0].player, 'FIRMADO');
+  const cajaBtn = document.getElementById('caja-spin-btn');
+  cajaBtn.textContent = rem > 0
+    ? `★ ABRIR CAJA (${getCajaCost().toLocaleString()} FC POINTS)`
+    : '↻ REINICIAR CAJA';
+
+  document.getElementById('caja-grid-12').innerHTML = CAJA_REWARDS.map((item, idx) => {
+    const claimed = state.cajaClaimed.includes(idx);
+    return `
+      <div class="caja-slot ${claimed ? 'claimed' : ''}">
+        <strong>${item.label}</strong>
+        <span>${claimed ? '✓ OBTENIDO' : `Casilla #${idx + 1}`}</span>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('interfaz-messi-card').innerHTML = playerCardHTML(MESSI_125, 'INTERFAZ');
+
+  document.getElementById('missions-date-badge').textContent = state.missionDay;
+  document.getElementById('missions-list').innerHTML = state.missions.map(m => {
+    const done = m.progress >= m.goal;
+    return `
+      <div class="shop-row">
+        <div>
+          <span class="shop-tag">DIARIA · ${m.progress}/${m.goal}</span>
+          <h4>${m.title}</h4>
+          <p>Recompensa: ${m.rewardText}</p>
+        </div>
+        <button class="btn-buy ${done && !m.claimed ? 'gold' : ''}" ${!done || m.claimed ? 'disabled' : ''} onclick="claimMission('${m.id}')">
+          ${m.claimed ? 'RECLAMADA' : done ? 'RECLAMAR' : `${m.progress}/${m.goal}`}
+        </button>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('sell-players-list').innerHTML = state.players.map(p => {
+    const payout = Math.max(1500, (p.ovr - 110) * 650);
+    return `
+      <div class="shop-row">
+        <div>
+          <span class="shop-tag">${p.pos} · GRL ${p.ovr}</span>
+          <h4>${p.name}</h4>
+          <p>Recibes: +${payout.toLocaleString()} Fichas</p>
+        </div>
+        <button class="btn-buy" onclick="sellPlayer('${p.uid}')">VENDER</button>
+      </div>
+    `;
+  }).join('');
+
+  const today = todayKey();
+  const dailyDone = state.lastDailyBonusDate === today;
+  const flashDone = state.lastFlashOfferDate === today;
+
+  document.getElementById('tienda-list').innerHTML = `
+    <div class="shop-row">
+      <div>
+        <span class="shop-tag">BONO CADA 24H</span>
+        <h4>+2,500 FC Points</h4>
+        <p>Recarga diaria limitada a 1 vez por día.</p>
+      </div>
+      <button class="btn-buy" ${dailyDone ? 'disabled' : ''} onclick="claimDailyBonus()">
+        ${dailyDone ? 'RECLAMADO HOY' : '🎁 GRATIS (BONO)'}
+      </button>
+    </div>
+    <div class="shop-row">
+      <div>
+        <span class="shop-tag">OFERTA RELÁMPAGO · $19 MXN</span>
+        <h4>+1,500 FC Points + 2 Cupones</h4>
+        <p>Oferta simulada de tienda · 1 vez por día.</p>
+      </div>
+      <button class="btn-buy gold" ${flashDone ? 'disabled' : ''} onclick="buyFlashOffer()">
+        ${flashDone ? 'AGOTADA HOY' : '$19 MXN'}
+      </button>
+    </div>
+    <div class="shop-row">
+      <div>
+        <span class="shop-tag">PAQUETE · $99 MXN</span>
+        <h4>Pase Estrella Santos</h4>
+        <p>+5,000 FC Points + 15,000 Fichas + 5 Cupones</p>
+      </div>
+      <button class="btn-buy gold" onclick="buyPack('star')">$99 MXN</button>
+    </div>
+    <div class="shop-row">
+      <div>
+        <span class="shop-tag">PAQUETE · $199 MXN</span>
+        <h4>Lote Mega FC Points</h4>
+        <p>+12,000 FC Points + 3,000 Joyas</p>
+      </div>
+      <button class="btn-buy gold" onclick="buyPack('mega')">$199 MXN</button>
+    </div>
+    <div class="shop-row">
+      <div>
+        <span class="shop-tag">PAQUETE · $349 MXN</span>
+        <h4>Cofre Leyenda Exclusivo</h4>
+        <p>+25,000 FC Points + 10 Cupones + Mbappé 124</p>
+      </div>
+      <button class="btn-buy gold" onclick="buyPack('legend')">$349 MXN</button>
+    </div>
+  `;
+
+  const sortedSquad = [...state.players].sort((a, b) => b.ovr - a.ovr);
+  document.getElementById('squad-list').innerHTML = sortedSquad.map(p => playerCardHTML(p)).join('');
+}
+
+document.getElementById('splash-avatar-messi').innerHTML = avatarHTML('Messi', 54);
+document.getElementById('splash-avatar-ronaldo').innerHTML = avatarHTML('Ronaldo', 54);
+document.getElementById('splash-avatar-mbappe').innerHTML = avatarHTML('Mbappé', 54);
+
+renderAll();
+setInterval(() => {
+  const cdText = `⏳ ${formatCountdown(state.cajaEndsAt - Date.now())}`;
+  const a = document.getElementById('caja-countdown');
+  const b = document.getElementById('caja-countdown-inner');
+  if (a) a.textContent = cdText;
+  if (b) b.textContent = cdText;
+}, 30000);
+</script>
+</body>
+</html>
